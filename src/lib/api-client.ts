@@ -1,5 +1,5 @@
-import { IOrder } from "@/models/Order";
-import { IProduct, ImageVariant } from "@/models/Product";
+import { Order } from "@/types/order";
+import { IProduct,ImageVariant } from "@/types/product";
 import { Types } from "mongoose";
 
 export type ProductFormData = Omit<IProduct, "_id">;
@@ -56,7 +56,7 @@ class ApiClient {
   }
 
   async getUserOrders() {
-    return this.fetch<IOrder[]>("/orders/user");
+    return this.fetch<Order[]>("/orders/user");
   }
 
   async createOrder(orderData: CreateOrderData) {
