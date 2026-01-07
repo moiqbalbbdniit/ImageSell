@@ -1,36 +1,51 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* Minimal global styles */
-html, body {
-  /* In v4, you can usually use classes directly on the HTML tag in layout.tsx, 
-     but @apply works here too if the import is correct. */
-  @apply min-h-screen bg-gray-50 text-gray-900 antialiased;
+:root {
+  /* Elegant Zinc-like Palette */
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%; /* Nearly black for high contrast actions */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 5.9% 10%;
+  --radius: 0.75rem;
+}
+
+/* Apply smooth scrolling and better font rendering */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  @apply bg-gray-50 text-gray-900;
 }
 
-/* Optional scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
+/* Modern Card Effect */
+.glass-card {
+  @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+/* Hide scrollbar for clean horizontal scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.35);
-}
-
-/* Input and textarea base styling */
-input, textarea, select, button {
-  @apply border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

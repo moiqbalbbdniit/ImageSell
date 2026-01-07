@@ -7,8 +7,8 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "ImageKit Next.js Integration",
-  description: "Demo of ImageKit integration with Next.js",
+  title: "Iqbal Shop - Premium Digital Assets",
+  description: "High-quality digital image marketplace",
 };
 
 export default function RootLayout({
@@ -18,14 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-zinc-50 min-h-screen flex flex-col`}>
         <Script
           src="https://checkout.razorpay.com/v1/checkout.js"
           strategy="lazyOnload"
         />
         <Providers>
           <Header />
-          <main className="container mx-auto px-4 py-8">{children}</main>
+          <main className="container mx-auto px-4 py-8 flex-1">{children}</main>
         </Providers>
       </body>
     </html>
