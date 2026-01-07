@@ -1,4 +1,4 @@
-import { IProduct } from "@/models/Product";
+import { IProduct } from "@/types/product";
 import ProductCard from "./ProductCard";
 
 interface ImageGalleryProps {
