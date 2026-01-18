@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🖼️ ImageSell
 
-## Getting Started
+ImageSell is a modern **digital assets marketplace** built with Next.js for selling downloadable images. The platform supports product management, secure payments, and user authentication, providing a complete end-to-end solution for creators to sell digital images online.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Overview
+
+ImageSell enables creators to upload, manage, and sell digital images with multiple variants and pricing options. Buyers can securely authenticate, purchase images, and access downloads after successful payment.
+
+The application is built using a scalable full-stack architecture with a focus on performance, security, and developer experience.
+
+---
+
+## ✨ Features
+
+* Product catalog with multiple image variants and pricing options
+* Admin dashboard to create and manage products
+* Image uploads and delivery using ImageKit
+* Secure payment flow using Razorpay with server-side verification
+* Webhook handling for payment confirmation
+* User authentication and sessions using NextAuth
+* Order management and purchase history
+* Email notifications using Nodemailer
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* Next.js with App Router
+* React
+* TypeScript
+* Tailwind CSS
+
+### Backend
+
+* Next.js API Routes
+* MongoDB with Mongoose
+
+### Integrations
+
+* ImageKit for image hosting and optimization
+* Razorpay for payments and webhooks
+* NextAuth for authentication
+* Nodemailer for transactional emails
+
+---
+
+## ⚡ Quick Start
+
+Follow the steps below to run the project locally.
+
+### Install Dependencies
+
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or using pnpm or yarn
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+yarn install
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### Local Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application will be available at [http://localhost:3000](http://localhost:3000)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Build and Start
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+npm run build
+npm run start
+```
+
+All scripts are defined in the package.json file.
+
+---
+
+## 🔐 Environment Variables
+
+Create a .env.local file in the root directory and add the following variables:
+
+```
+NEXTAUTH_URL=
+NEXTAUTH_SECRET=
+MONGODB_URI=
+
+NEXT_PUBLIC_PUBLIC_KEY=
+IMAGEKIT_PRIVATE_KEY=
+NEXT_PUBLIC_URL_ENDPOINT=
+
+NEXT_PUBLIC_RAZORPAY_KEY_ID=
+RAZORPAY_KEY_SECRET=
+RAZORPAY_WEBHOOK_SECRET=
+
+MAILTRAP_USER=
+MAILTRAP_PASS=
+```
+
+These variables are required for authentication, database connection, image uploads, payments, and email notifications.
+
+---
+
+## 🗂️ Project Structure
+
+High-level overview of the project structure:
+
+* src/app — Next.js App Router pages and API routes
+* src/app/api — REST APIs for products, orders, payments, webhooks, and authentication
+* src/components — Reusable UI components such as ProductCard, AdminProductForm, FileUpload, and Notification
+* src/models — Mongoose models for User, Product, and Order
+* src/lib — Utility helpers including database connection, auth configuration, and API utilities
+
+---
+
+## 🔌 API Notes
+
+The application exposes REST API routes under src/app/api for:
+
+* Products: Fetch and create products (admin protected)
+* Orders: Create orders and fetch user order history
+* Payments: Razorpay order creation, payment verification, and webhook handling
+* Authentication: NextAuth powered auth routes
+
+Refer to the individual route files for request and response formats.
+
+---
+
+## 🌐 Deployment Tips
+
+* Deploy the project on Vercel for best Next.js support
+* Ensure all environment variables are configured in the production environment
+* Set Razorpay webhook secrets correctly to avoid payment verification issues
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome.
+
+* Open an issue describing the bug or feature
+* Create a pull request following the existing code style
+* Ensure TypeScript types remain consistent
+
+Note: Automated tests are not included in this project.
+
+---
+
+## 📝 License
+
+Please refer to the repository top-level files for licensing information. Project metadata and license details are available in the package.json file.
+
+---
+
+<p align="center">Built with ❤️ using Next.js</p>
