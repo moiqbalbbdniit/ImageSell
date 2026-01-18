@@ -1,108 +1,118 @@
 # 🖼️ ImageSell
 
-ImageSell is a modern **digital assets marketplace** built with Next.js for selling downloadable images. The platform supports product management, secure payments, and user authentication, providing a complete end-to-end solution for creators to sell digital images online.
+<p align="center">
+  <strong>A Modern Digital Image Marketplace built with Next.js</strong><br/>
+  Sell, manage, and deliver downloadable images with secure payments and authentication.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-14-black?logo=next.js" />
+  <img src="https://img.shields.io/badge/TypeScript-Strict-blue?logo=typescript" />
+  <img src="https://img.shields.io/badge/Tailwind-CSS-38BDF8?logo=tailwindcss" />
+  <img src="https://img.shields.io/badge/MongoDB-Database-green?logo=mongodb" />
+  <img src="https://img.shields.io/badge/Razorpay-Payments-0C2451?logo=razorpay" />
+  <img src="https://img.shields.io/badge/ImageKit-CDN%20%26%20Storage-orange" />
+  <img src="https://img.shields.io/badge/Auth-NextAuth-purple" />
+</p>
 
 ---
 
 ## 🚀 Overview
 
-ImageSell enables creators to upload, manage, and sell digital images with multiple variants and pricing options. Buyers can securely authenticate, purchase images, and access downloads after successful payment.
+**ImageSell** is a full‑stack digital assets marketplace where creators can sell downloadable images securely. It supports **admin‑managed products**, **user authentication**, **online payments**, **image hosting**, and **order management** — all built using a modern production‑grade stack.
 
-The application is built using a scalable full-stack architecture with a focus on performance, security, and developer experience.
-
----
-
-## ✨ Features
-
-* Product catalog with multiple image variants and pricing options
-* Admin dashboard to create and manage products
-* Image uploads and delivery using ImageKit
-* Secure payment flow using Razorpay with server-side verification
-* Webhook handling for payment confirmation
-* User authentication and sessions using NextAuth
-* Order management and purchase history
-* Email notifications using Nodemailer
+This project demonstrates real‑world SaaS architecture, payment workflows, and scalable backend design.
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Key Features
+
+### 🛍️ Marketplace
+
+* Browse a clean, responsive product catalog
+* Multiple image variants per product
+* Dynamic pricing and instant downloads after payment
+
+### 🔐 Authentication
+
+* Secure login/signup using **NextAuth**
+* Session‑based access control
+* Protected admin routes
+
+### 🧑‍💼 Admin Dashboard
+
+* Create, update, and manage products
+* Upload optimized images via **ImageKit**
+* Control pricing and availability
+
+### 💳 Payments & Orders
+
+* Razorpay order creation & checkout
+* Server‑side payment verification
+* Webhook handling for secure confirmation
+* Persistent order history stored in MongoDB
+
+### 📦 Backend Architecture
+
+* RESTful API routes using App Router
+* Mongoose models with proper relations
+* Secure environment‑based configuration
+
+---
+
+## 🧠 Tech Stack
 
 ### Frontend
 
-* Next.js with App Router
-* React
-* TypeScript
-* Tailwind CSS
+* **Next.js (App Router)**
+* **React 18**
+* **TypeScript**
+* **Tailwind CSS**
 
 ### Backend
 
-* Next.js API Routes
-* MongoDB with Mongoose
+* **Next.js API Routes**
+* **MongoDB + Mongoose**
+* **NextAuth** for authentication
 
-### Integrations
+### Services & Integrations
 
-* ImageKit for image hosting and optimization
-* Razorpay for payments and webhooks
-* NextAuth for authentication
-* Nodemailer for transactional emails
+* **ImageKit** – image upload, CDN & optimization
+* **Razorpay** – secure payments & webhooks
+* **Nodemailer / Mailtrap** – transactional emails
 
 ---
 
-## ⚡ Quick Start
-
-Follow the steps below to run the project locally.
-
-### Install Dependencies
+## 📁 Project Structure (High Level)
 
 ```
-npm install
-```
-
-Or using pnpm or yarn
-
-```
-pnpm install
-```
-
-```
-yarn install
+src/
+├── app/
+│   ├── api/            # REST API routes
+│   ├── admin/          # Admin dashboard
+│   ├── products/       # Product pages
+│   └── orders/         # User orders
+├── components/         # Reusable UI components
+├── models/             # Mongoose models
+├── lib/                # DB, auth & helpers
+└── styles/             # Global styles
 ```
 
 ---
 
-### Local Development
+## ⚙️ Environment Variables
 
-```
-npm run dev
-```
-
-The application will be available at [http://localhost:3000](http://localhost:3000)
-
----
-
-### Build and Start
-
-```
-npm run build
-npm run start
-```
-
-All scripts are defined in the package.json file.
-
----
-
-## 🔐 Environment Variables
-
-Create a .env.local file in the root directory and add the following variables:
+Create a `.env.local` file with the following:
 
 ```
 NEXTAUTH_URL=
 NEXTAUTH_SECRET=
+
 MONGODB_URI=
 
-NEXT_PUBLIC_PUBLIC_KEY=
+NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY=
 IMAGEKIT_PRIVATE_KEY=
-NEXT_PUBLIC_URL_ENDPOINT=
+NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT=
 
 NEXT_PUBLIC_RAZORPAY_KEY_ID=
 RAZORPAY_KEY_SECRET=
@@ -112,59 +122,76 @@ MAILTRAP_USER=
 MAILTRAP_PASS=
 ```
 
-These variables are required for authentication, database connection, image uploads, payments, and email notifications.
+> These are required for authentication, image uploads, payments, and emails.
 
 ---
 
-## 🗂️ Project Structure
+## 🛠️ Getting Started
 
-High-level overview of the project structure:
+### Install Dependencies
 
-* src/app — Next.js App Router pages and API routes
-* src/app/api — REST APIs for products, orders, payments, webhooks, and authentication
-* src/components — Reusable UI components such as ProductCard, AdminProductForm, FileUpload, and Notification
-* src/models — Mongoose models for User, Product, and Order
-* src/lib — Utility helpers including database connection, auth configuration, and API utilities
+```
+npm install
+# or
+yarn
+# or
+pnpm install
+```
 
----
+### Run Development Server
 
-## 🔌 API Notes
+```
+npm run dev
+```
 
-The application exposes REST API routes under src/app/api for:
+### Production Build
 
-* Products: Fetch and create products (admin protected)
-* Orders: Create orders and fetch user order history
-* Payments: Razorpay order creation, payment verification, and webhook handling
-* Authentication: NextAuth powered auth routes
-
-Refer to the individual route files for request and response formats.
-
----
-
-## 🌐 Deployment Tips
-
-* Deploy the project on Vercel for best Next.js support
-* Ensure all environment variables are configured in the production environment
-* Set Razorpay webhook secrets correctly to avoid payment verification issues
+```
+npm run build
+npm start
+```
 
 ---
 
-## 🤝 Contributing
+## 🧪 API Highlights
 
-Contributions are welcome.
+* `GET /api/products` – fetch product catalog
+* `POST /api/products` – create product (admin)
+* `POST /api/orders` – create Razorpay order
+* `POST /api/verify-payment` – payment verification
+* `POST /api/webhook` – Razorpay webhook handler
 
-* Open an issue describing the bug or feature
-* Create a pull request following the existing code style
-* Ensure TypeScript types remain consistent
-
-Note: Automated tests are not included in this project.
-
----
-
-## 📝 License
-
-Please refer to the repository top-level files for licensing information. Project metadata and license details are available in the package.json file.
+All sensitive routes are protected via authentication and server‑side checks.
 
 ---
 
-<p align="center">Built with ❤️ using Next.js</p>
+## 🌍 Deployment
+
+* Fully compatible with **Vercel**
+* Secure secrets management via environment variables
+* Optimized for performance and scalability
+
+---
+
+## 👨‍💻 Why This Project Matters
+
+This project showcases:
+
+* Real‑world **full‑stack SaaS architecture**
+* Secure **payment gateway integration**
+* Production‑ready **authentication & authorization**
+* Clean, maintainable, and scalable codebase
+
+Perfect for demonstrating skills required in **startup** and **product‑based companies**.
+
+---
+
+## 📄 License
+
+Refer to the repository’s `package.json` or license file for details.
+
+---
+
+<p align="center">
+  <strong>Built with ❤️ using Next.js & modern web technologies</strong>
+</p>
